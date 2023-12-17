@@ -1,0 +1,101 @@
+{
+  "queryPlanner": {
+    "plannerVersion": 1,
+    "namespace": "test.Tasks",
+    "indexFilterSet": false,
+    "parsedQuery": {
+      "start_date": {
+        "$gte": {
+          "$date": "2023-01-01T00:00:00Z"
+        }
+      }
+    },
+    "winningPlan": {
+      "stage": "FETCH",
+      "inputStage": {
+        "stage": "IXSCAN",
+        "keyPattern": {
+          "start_date": 1
+        },
+        "indexName": "start_date_1",
+        "isMultiKey": false,
+        "multiKeyPaths": {
+          "start_date": []
+        },
+        "isUnique": false,
+        "isSparse": false,
+        "isPartial": false,
+        "indexVersion": 2,
+        "direction": "forward",
+        "indexBounds": {
+          "start_date": [
+            "[new Date(1672531200000), new Date(9223372036854775807)]"
+          ]
+        }
+      }
+    },
+    "rejectedPlans": []
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 11,
+    "executionTimeMillis": 132,
+    "totalKeysExamined": 11,
+    "totalDocsExamined": 11,
+    "executionStages": {
+      "stage": "FETCH",
+      "nReturned": 11,
+      "executionTimeMillisEstimate": 0,
+      "works": 12,
+      "advanced": 11,
+      "needTime": 0,
+      "needYield": 0,
+      "saveState": 0,
+      "restoreState": 0,
+      "isEOF": 1,
+      "docsExamined": 11,
+      "alreadyHasObj": 0,
+      "inputStage": {
+        "stage": "IXSCAN",
+        "nReturned": 11,
+        "executionTimeMillisEstimate": 0,
+        "works": 12,
+        "advanced": 11,
+        "needTime": 0,
+        "needYield": 0,
+        "saveState": 0,
+        "restoreState": 0,
+        "isEOF": 1,
+        "keyPattern": {
+          "start_date": 1
+        },
+        "indexName": "start_date_1",
+        "isMultiKey": false,
+        "multiKeyPaths": {
+          "start_date": []
+        },
+        "isUnique": false,
+        "isSparse": false,
+        "isPartial": false,
+        "indexVersion": 2,
+        "direction": "forward",
+        "indexBounds": {
+          "start_date": [
+            "[new Date(1672531200000), new Date(9223372036854775807)]"
+          ]
+        },
+        "keysExamined": 11,
+        "seeks": 1,
+        "dupsTested": 0,
+        "dupsDropped": 0
+      }
+    }
+  },
+  "serverInfo": {
+    "host": "DESKTOP-0JTHDV8",
+    "port": 27017,
+    "version": "4.4.6",
+    "gitVersion": "72e66213c2c3eab37d9358d5e78ad7f5c1d0d0d7"
+  },
+  "ok": 1
+}

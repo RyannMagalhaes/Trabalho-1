@@ -1,0 +1,61 @@
+{
+  "queryPlanner": {
+    "plannerVersion": 1,
+    "namespace": "test.Tasks",
+    "indexFilterSet": false,
+    "parsedQuery": {
+      "start_date": {
+        "$gte": {
+          "$date": "2023-01-01T00:00:00Z"
+        }
+      }
+    },
+    "winningPlan": {
+      "stage": "COLLSCAN",
+      "filter": {
+        "start_date": {
+          "$gte": {
+            "$date": "2023-01-01T00:00:00Z"
+          }
+        }
+      },
+      "direction": "forward"
+    },
+    "rejectedPlans": []
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 11,
+    "executionTimeMillis": 23,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 11,
+    "executionStages": {
+      "stage": "COLLSCAN",
+      "filter": {
+        "start_date": {
+          "$gte": {
+            "$date": "2023-01-01T00:00:00Z"
+          }
+        }
+      },
+      "nReturned": 11,
+      "executionTimeMillisEstimate": 0,
+      "works": 13,
+      "advanced": 11,
+      "needTime": 1,
+      "needYield": 0,
+      "saveState": 0,
+      "restoreState": 0,
+      "isEOF": 1,
+      "direction": "forward",
+      "docsExamined": 11
+    }
+  },
+  "serverInfo": {
+    "host": "DESKTOP-0JTHDV8",
+    "port": 27017,
+    "version": "4.4.6",
+    "gitVersion": "72e66213c2c3eab37d9358d5e78ad7f5c1d0d0d7"
+  },
+  "ok": 1
+}
